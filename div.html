@@ -2,46 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title></title>
     <style>
-        div{
-            position: absolute;
+        div {
+            position: relative;
             background-color: green;
             height: 100px;
             width: 100px;
             border-radius: 50%;
         };
+        #but {
+            height: 100px;
+            position: absolute;
+        };
     </style>
     <script>
         window.onload = function () {
             var div = document.querySelector("div");
+            var button = document.querySelector("button");
             var pos = 0;
             var int;
             var counter = 0;
-            function startStop(){
-                if(counter % 2 == 0){
-                    int = setInterval(function () {
-                        pos++
-                        if(pos < screen.width - div.getBoundingClientRect().width) {
-                            div.style.left = pos + "px";
-                        } else {
-                            pos = 0; 
-                        }
-                    }, 7);
+            function start() {
+                if(counter == 0) {
+                int = setInterval(function () {
                     counter++
-                } else {
-                    counter = 0;
-                    clearInterval(int);
+                    pos++
+                    if(pos < screen.width - div.getBoundingClientRect().width){
+                        div.style.left = pos + "px";
+                    } else {
+                        pos=0;  
+                    }
+                },5);
                 }
-            };
-            div.addEventListener("click", startStop)
+            }
+            div.addEventListener("click", start);
+            button.addEventListener("click", function () {
+                clearInterval(int);
+            })
         }
             
     </script>
 </head>
 <body>
-    <div></div>  
+    <div></div> 
+    <button id="but">stop</button> 
 </body>
 </html>
