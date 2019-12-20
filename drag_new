@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Drag</title>
+    <style>
+        div {
+            position: absolute;
+            background-color: lightgreen;
+            height: 100px;
+            width:100px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function mouthMoveFunc(e) {
+                var x = e.clientX;
+                var y = e.clientY;
+                var domRect = div.getBoundingClientRect().width;
+                div.style.left = (x - (domRect/2)) + "px";
+                div.style.top = (y - (domRect/2)) + "px";
+            };
+            var div = document.querySelector("div");
+            div.addEventListener("mousedown", moveDiv);
+            function moveDiv(e) {
+                document.body.addEventListener("mousemove", mouthMoveFunc);  
+            }
+            document.body.addEventListener("mouseup", function(){
+                document.body.removeEventListener("mousemove", mouthMoveFunc);
+            });
+            div.addEventListener("mouseleave", function(){
+                document.body.removeEventListener("mousemove", mouthMoveFunc);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
