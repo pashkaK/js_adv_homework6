@@ -28,18 +28,18 @@
                 int = setInterval(function () {
                     counter++
                     pos++
-                    if(pos < screen.width - div.getBoundingClientRect().width){
+                    if(pos < screen.width - div.getBoundingClientRect().width) {
                         div.style.left = pos + "px";
                     } else {
-                        pos=0;  
+                        pos = 0;  
                     }
-                },5);
-                }
+                },5);}
             }
-            div.addEventListener("click", start);
             button.addEventListener("click", function () {
+                counter = 0;
                 clearInterval(int);
             })
+            div.addEventListener("click", start);
         }
             
     </script>
