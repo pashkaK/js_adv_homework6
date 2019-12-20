@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-	<style type="text/css">
-		input {
-			width: 200px;
-			height: 50px;
-			text-align: 24px;
-			font-size: 18px;
-		}
-	</style>
-</head>
-<body>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    <head>
+        <style>
+            #btn {
+                display: none;
+                position: fixed;
+                bottom: 30px;
+                left: 20px;
+                width: 100px;
+                height: 35px;
+                font-size: 16px;
+            }
+            p {
+                font-size: 18px;
+            };
+        </style>
+    </head>
+    <body>
+        <input id="btn" type="button" value="Scroll to top" />
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -61,12 +67,46 @@
 	<br>
 	<br>
 	<br>
-	<input type="button" name="backToTop" value="back to top">
-	<script type="text/javascript">
-		var button = document.querySelector('input');
-		button.addEventListener('click', function () {
-			window.scrollTo(0, 0);
-		})
-	</script>
-</body>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+    </body>
+
+    <script>
+        var btnToTop = document.getElementById('btn');
+        window.addEventListener('scroll', goToTop);
+        btnToTop.addEventListener('click', goToTopMove);
+        function goToTop(){
+            var scrollTopPage = window.pageYOffset;
+            if (scrollTopPage > 150) {
+            	btnToTop.style.display = 'block' ;
+            } else {
+            	btnToTop.style.display = 'none';
+            }
+        };
+      
+        function goToTopMove(){
+            window.scrollTo(0, 0)
+        };
+    </script>
 </html>
